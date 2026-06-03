@@ -2,5 +2,6 @@
 Senior Design Project for MIRA
 
 
-Joseph
-Aidan
+Joseph  
+Aidan  
+Jayden
