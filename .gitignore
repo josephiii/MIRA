@@ -1,0 +1,8 @@
+#Backend/Python
+backend/.env
+backend/venv/
+
+#Mobile/Kotlin
+frontend/mobile/.gradle/
+frontend/mobile/build/
+frontend/mobile/local.properties
