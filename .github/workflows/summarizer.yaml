@@ -1,6 +1,8 @@
 name: Code Summarizer
 on:
   push:
+permissions:
+  contents: write
 jobs:
   summarizer:
     runs-on: ubuntu-latest
@@ -39,3 +41,5 @@ jobs:
         with:
           commit_message: "Chore: Updating the changelog"
           file_pattern: "CHANGELOG.md"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
