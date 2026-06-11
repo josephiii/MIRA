@@ -22,19 +22,27 @@ jobs:
         run: |
           diff=$(cat diff.txt)
           payload=$(jq -n --arg diff "$diff" '{
-
-              "model": "grok-4.3",
-              "input": $diff,
-              "instructions": "Take the following code from the output of the diff and generate a bulleted list that summarizes the differences based on chunks of code, title with the date" 
-            }'
+              "model": "llama-3.3-70b-versatile",
+              "messages": [
+              {
+                "role": "system",
+                "content": "Imagine you are developer summarizing what the code does. Return a bulleted list that summarizes the function of the code with the date, to format a changelog file. Your analysis for a small amount of code shouldnt be long"
+              }, 
+              {
+                "role": "user",
+                "content": $diff
+              }
+              ]
+            }'  
           )
-          curl -s https://api.x.ai/v1/responses \
+
+          curl https://api.groq.com/openai/v1/chat/completions -s \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.GROK_API }}" \
             -d  "$payload" > response.txt
 
       - name: Modify changelog file
-        run: jq -r '.output[0].content[0].text' response.txt >> CHANGELOG.md
+        run: jq -r '.choices[0].message.content' response.txt >> CHANGELOG.md
 
       - name: Push the changelog file
         uses: stefanzweifel/git-auto-commit-action@v5
