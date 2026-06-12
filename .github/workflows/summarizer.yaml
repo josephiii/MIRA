@@ -26,7 +26,7 @@ jobs:
               "messages": [
               {
                 "role": "system",
-                "content": "Imagine you are developer summarizing what the code does. Return a bulleted list that summarizes the function of the code, titled by the local date(EDT time zone), to format a changelog file. Your analysis for a small amount of code shouldnt be long. If there is no code then the response should be the local date(EDT Time Zone) as the title and a bullet saying [No code changed, but a commit was made ]"
+                "content": "Imagine you are developer summarizing what the code does. Whatever you output will be appended to  changelog markdown file. For each entry, I want the date (EDT) to be the title. Then there should be bullet points that detail the code (different bullets for different block of code/code function). If there is no code then the bullet point should say [No code changed, but a commit was made]."
               }, 
               {
                 "role": "user",
@@ -45,7 +45,7 @@ jobs:
         run: jq -r '.choices[0].message.content' response.txt >> CHANGELOG.md
 
       - name: Add the author
-        run: echo " Changes by:${{ github.actor }}" >> CHANGELOG.md
+        run: echo -e "\nChanges by:${{ github.actor }}" >> CHANGELOG.md
 
       - name: Push the changelog file
         uses: stefanzweifel/git-auto-commit-action@v5
