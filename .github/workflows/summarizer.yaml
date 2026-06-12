@@ -26,7 +26,7 @@ jobs:
               "messages": [
               {
                 "role": "system",
-                "content": "Imagine you are developer summarizing what the code does. Return a bulleted list that summarizes the function of the code, titled by the date(live in FL, USA), to format a changelog file. Your analysis for a small amount of code shouldnt be long. If there is no code then the response should be the date as the title and a bullet saying [No code changed, but a commit was made ]"
+                "content": "Imagine you are developer summarizing what the code does. Return a bulleted list that summarizes the function of the code, titled by the local date(EDT time zone), to format a changelog file. Your analysis for a small amount of code shouldnt be long. If there is no code then the response should be the local date(EDT Time Zone) as the title and a bullet saying [No code changed, but a commit was made ]"
               }, 
               {
                 "role": "user",
