@@ -22,7 +22,7 @@ jobs:
         run: |
           diff=$(cat diff.txt)
           current_date=$(TZ="America/New_York" date "+%B %d, %Y %I:%M %p EDT")
-          payload=$(jq -n --arg diff "$diff" -arg date "$current_date" '{
+          payload=$(jq -n --arg diff "$diff" --arg date "$current_date" '{
               "model": "llama-3.3-70b-versatile",
               "messages": [
               {
