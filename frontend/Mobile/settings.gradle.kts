@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  * All rights reserved.
@@ -13,49 +12,6 @@ import kotlin.io.path.exists
 import kotlin.io.path.inputStream
 
 pluginManagement {
-  repositories {
-    google {
-      content {
-        includeGroupByRegex("com\\.android.*")
-        includeGroupByRegex("com\\.google.*")
-        includeGroupByRegex("androidx.*")
-      }
-    }
-    mavenCentral()
-    gradlePluginPortal()
-  }
-}
-
-val localProperties =
-    Properties().apply {
-      val localPropertiesPath = rootDir.toPath() / "local.properties"
-      if (localPropertiesPath.exists()) {
-        load(localPropertiesPath.inputStream())
-      }
-    }
-
-dependencyResolutionManagement {
-  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-  repositories {
-    google()
-    mavenCentral()
-    maven {
-      url = uri("https://maven.pkg.github.com/facebook/meta-wearables-dat-android")
-      credentials {
-        username = "" // not needed
-        password = System.getenv("GITHUB_TOKEN") ?: localProperties.getProperty("github_token")
-      }
-    }
-  }
-}
-
-rootProject.name = "CameraAccess"
-
-include(":app")
-=======
-import java.util.Properties
-
-pluginManagement {
     repositories {
         google {
             content {
@@ -68,14 +24,14 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-}
 
-val localProperties = Properties().apply {
-    val f = rootDir.resolve("local.properties")
-    if (f.exists()) f.inputStream().use { load(it) }
-}
+val localProperties =
+    Properties().apply {
+        val localPropertiesPath = rootDir.toPath() / "local.properties"
+        if (localPropertiesPath.exists()) {
+            load(localPropertiesPath.inputStream())
+        }
+    }
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -85,13 +41,13 @@ dependencyResolutionManagement {
         maven {
             url = uri("https://maven.pkg.github.com/facebook/meta-wearables-dat-android")
             credentials {
-                username = ""
+                username = "" // not needed
                 password = System.getenv("GITHUB_TOKEN") ?: localProperties.getProperty("github_token")
             }
         }
     }
 }
 
-rootProject.name = "MIRA"
+rootProject.name = "CameraAccess"
+
 include(":app")
->>>>>>> env-stack-setup
