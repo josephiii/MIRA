@@ -37,6 +37,7 @@ import kotlinx.coroutines.CancellableContinuation
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import com.meta.wearable.dat.externalsampleapps.cameraaccess.ocr.TextReaderOCR
 
 class MainActivity : ComponentActivity() {
   companion object {
@@ -46,6 +47,7 @@ class MainActivity : ComponentActivity() {
 
   val viewModel: WearablesViewModel by viewModels()
 
+  private lateinit var textReaderOCR: TextReaderOCR
   private val permissionCheckLauncher =
       registerForActivityResult(RequestMultiplePermissions()) { permissionsResult ->
         viewModel.onPermissionsResult(permissionsResult) {
@@ -86,6 +88,7 @@ class MainActivity : ComponentActivity() {
           onRequestWearablesPermission = ::requestWearablesPermission,
       )
     }
+    textReaderOCR = TextReaderOCR()
   }
 
   override fun onStart() {
