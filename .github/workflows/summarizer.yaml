@@ -1,6 +1,8 @@
 name: Code Summarizer
 on:
   push:
+    branches-ignore:
+      - main
 permissions:
   contents: write
 jobs:
@@ -9,13 +11,15 @@ jobs:
     steps:
       - name: Get Repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Get diff from repo
         run: |
           if git rev-parse HEAD~1 > /dev/null 2>&1; then
             git diff HEAD~1 HEAD > diff.txt
           else
-            git diff --root HEAD > diff.txt
+            git diff $(git hash-object -t tree /dev/null) HEAD > diff.txt
           fi
 
       - name: Call AI API to summarize diff
