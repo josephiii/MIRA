@@ -129,3 +129,9 @@ Changes by:AMDev80
 * Modified the GitHub workflow file `summarizer.yaml` to ignore pushes to the `main` branch by adding `branches-ignore` with the value `- main`.
 
 Changes by:Jaurelus
+## July 01, 2026
+* Modified the `.github/workflows/summarizer.yaml` file to include `fetch-depth: 2` in the `Get Repo` step to increase the git fetch depth.
+* Updated the `Get diff from repo` step to use `git diff $(git hash-object -t tree /dev/null) HEAD` instead of `git diff --root HEAD` to get the diff from the initial commit when `HEAD~1` is not available.
+* Added `branches-ignore` to the workflow file to ignore pushes to the `main` branch.
+
+Changes by:Jaurelus
