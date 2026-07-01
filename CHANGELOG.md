@@ -79,3 +79,8 @@ Changes by:AMDev80
 * Modified the GitHub workflow file `summarizer.yaml` to ignore pushes to the `main` branch by adding `branches-ignore` with the value `- main`.
 
 Changes by:Jaurelus
+## June 30, 2026
+* Modified the GitHub workflow file `summarizer.yaml` to ignore pushes to the `main` branch by adding `branches-ignore` with the value `- main`.
+* Updated the `CHANGELOG.md` file to reflect the recent changes made to the `summarizer.yaml` file.
+
+Changes by:zacklemon13
