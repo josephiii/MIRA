@@ -75,3 +75,7 @@ Changes by:Jaurelus
 * No changes were made to the `Call AI API to summarize diff` step.
 
 Changes by:AMDev80
+## June 30, 2026
+* Modified the GitHub workflow file `summarizer.yaml` to ignore pushes to the `main` branch by adding `branches-ignore` with the value `- main`.
+
+Changes by:Jaurelus
