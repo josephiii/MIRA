@@ -146,3 +146,13 @@ Changes by:Jaurelus
 * [No code changed, but a commit was made]
 
 Changes by:Jaurelus
+## July 02, 2026
+* Added new file `DepthEstRoutes.py` to `backend/routes` directory.
+* Added new file `DepthEstSchema.py` to `backend/schemas` directory.
+* Added new file `DepthEstService.py` to `backend/services` directory, which includes the following functions:
+  + `resizeImage()`: resizes images to 518px to optimize model performance.
+  + `compressImageQuality()`: currently empty, intended to compress image quality.
+  + `runModel()`: currently empty, intended to run a model.
+  + `returnAudio()`: currently empty, intended to return audio.
+
+Changes by:Jaurelus
