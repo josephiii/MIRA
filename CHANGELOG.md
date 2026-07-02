@@ -138,3 +138,11 @@ Changes by:Jaurelus
 * [No code changed, but a commit was made]
 
 Changes by:Jaurelus
+## July 02, 2026
+* Updated the `.gitignore` file to ignore `backend/**/__pycache__/` instead of `backend/__pycache__/` to handle nested directories.
+* Added new files to the `documentation/research` directory: `depth-model-research.md` and `server-hosting-research`.
+* Created the `server-hosting-research` file to document the research and decision-making process for choosing a server hosting platform, including the evaluation of AWS EC2 instance types (G, P, TRN, DL, and INF) and the selection of the g6e.xlarge and g6.xlarge instances as the most suitable production options.
+* Researched and documented factors such as memory requirements, latency, and pricing for the selected instance types, including the G4, G5, and G6 instances, and their respective NVIDIA chips (T4, A10G, and L4).
+* [No code changed, but a commit was made]
+
+Changes by:Jaurelus
